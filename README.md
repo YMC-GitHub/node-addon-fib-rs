@@ -1,6 +1,9 @@
-# `@napi-rs/package-template`
+# `@yors/fib-rs`
 
-![https://github.com/napi-rs/package-template/actions](https://github.com/napi-rs/package-template/workflows/CI/badge.svg)
+a fib function for node in rust with napi-rs/package/template
+
+
+![https://github.com/ymc-github/node-addon-fib-rs/actions](https://github.com/ymc-github/node-addon-fib-rs/workflows/CI/badge.svg)
 
 > Template project for writing node packages with napi-rs.
 
@@ -13,9 +16,10 @@
 
 ## Install this test package
 
+```bash
+yarn add @yors/fib-rs
 ```
-yarn add @napi-rs/package-template
-```
+
 
 ## Support matrix
 
