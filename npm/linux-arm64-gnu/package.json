@@ -28,7 +28,7 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "repository": "git@github.com:napi-rs/package-template.git",
+  "repository": "git@github.com:ymc-github/node-addon-fib-rs.git",
   "libc": [
     "glibc"
   ]
