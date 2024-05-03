@@ -4,7 +4,6 @@
 
 // console.info('Simple test passed')
 
-
 const { fib } = require('./index')
 
 console.assert(fib(40) === 102334155, 'Simple test ok')

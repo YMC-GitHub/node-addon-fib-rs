@@ -2,7 +2,6 @@
 
 a fib function for node in rust with napi-rs/package/template
 
-
 ![https://github.com/ymc-github/node-addon-fib-rs/actions](https://github.com/ymc-github/node-addon-fib-rs/workflows/CI/badge.svg)
 
 > Template project for writing node packages with napi-rs.
@@ -20,14 +19,12 @@ a fib function for node in rust with napi-rs/package/template
 yarn add @yors/fib-rs
 ```
 
-
 ## demo
+
 ```ts
 import { fib } from '@yors/fib-rs'
 console.log(fib(40)) //102334155
 ```
-
-
 
 ## Support matrix
 
@@ -49,9 +46,8 @@ console.log(fib(40)) //102334155
 | Android armv7    | ✓      | ✓      | ✓      |
 | FreeBSD x64      | ✓      | ✓      | ✓      |
 
+## workflow for development
 
-
-## workflow for development 
 ```powershell
 
 
@@ -75,6 +71,11 @@ yarn build
 yarn test
 yarn bench
 
+
+# lint:
+yarn lint
+yarn format
+
 # publish:
 yarn run version
 yarn artticfacts
@@ -85,10 +86,7 @@ yarn prepublishOnly
 
 ```
 
-
 ## Ability
-
-
 
 ### Build
 
@@ -154,7 +152,6 @@ git push
 ```
 
 GitHub actions will do the rest job for you.
-
 
 ## find related project
 
