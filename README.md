@@ -21,6 +21,14 @@ yarn add @yors/fib-rs
 ```
 
 
+## demo
+```ts
+import { fib } from '@yors/fib-rs'
+console.log(fib(40)) //102334155
+```
+
+
+
 ## Support matrix
 
 ### Operating Systems
@@ -41,7 +49,46 @@ yarn add @yors/fib-rs
 | Android armv7    | ✓      | ✓      | ✓      |
 | FreeBSD x64      | ✓      | ✓      | ✓      |
 
+
+
+## workflow for development 
+```powershell
+
+
+# code:
+# ...
+# clone from @napi-rs/package-template
+# degit napi-rs/package-template`#main packages/add-rs
+degit napi-rs/package-template`#main node-addon-fib-rs
+# cd node-addon-fib-rs
+
+# change napi pacakge name:
+yarn exec napi rename -n @yors/fib-rs
+
+# install node_module packages with yarn:
+yarn
+
+# build:
+yarn build
+
+# test:
+yarn test
+yarn bench
+
+# publish:
+yarn run version
+yarn artticfacts
+yarn prepublishOnly
+# ...
+
+# github action
+
+```
+
+
 ## Ability
+
+
 
 ### Build
 
@@ -107,3 +154,8 @@ git push
 ```
 
 GitHub actions will do the rest job for you.
+
+
+## find related project
+
+- [find @yors/xx in yarnpkg.com/search](https://yarnpkg.com/search?q=%40yors)
