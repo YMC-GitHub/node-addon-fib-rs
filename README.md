@@ -76,14 +76,141 @@ yarn bench
 yarn lint
 yarn format
 
-# publish:
-yarn run version
-yarn artticfacts
-yarn prepublishOnly
+
+# github & gh & ghg-ify:
+# ...
+$repo="ymc-github/node-addon-fib-rs";
+$repo_desc="a fib for node in rust with napi-rs/package/template";
+
+$repo_uname=$repo -replace "-","_" -replace "/","_";
+$repo_name=$repo  -replace ".*/","";
+$repo_user=$repo  -replace "/.*","";
+
+$email=git config user.email;
+
+$repo_user;
+$repo_name;
+
+# public
+gh repo create $repo_name --public --description "$repo_desc"
+# private
+# gh repo create $repo_name --private --description "$repo_desc"
+
+# gh repo deploy-key list --repo $repo
+
+# create deploy token
+ssh-keygen -C "$email" -f $HOME/.ssh/gh_$repo_uname -t ed25519 -N '""'
+
+# gh - upload github deploy
+gh repo deploy-key add $HOME/.ssh/gh_${repo_uname}.pub --repo $repo -w --title deploy;
+
+# set ssh key client (warn: next cmd will overide .ssh/config)
+$txt=@"
+Host github.com
+    User git
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/gh_${repo_uname}
+"@
+
+set-content -path $HOME/.ssh/config -value $txt
+ssh -T git@github.com
+# ssh -Tv git@github.com
+
+# set workflow write mode in webui (todo):
 # ...
 
-# github action
+# prepare npm toekn as secret for github workflow:
+# ...
+# list
+# gh secret list --repo $repo
 
+# put
+# gh secret set --repo $repo  -f D:\book\secret\npm.token.auto.md
+# NPM_TOKEN=xx in npm.token.md
+
+
+# push:
+# ...
+# git remote -v
+# git remote remove ghg
+git remote add ghg git@github.com:$repo.git
+git push -u ghg main
+git push ghg main
+# git push -u ghg main;
+git push ghg main;
+
+
+# publish:
+# yarn r/un version
+# yarn artticfacts
+# yarn prepublishOnly
+# ...
+
+# tag & publish & release:
+# ...
+# git log --oneline
+
+$ver="1.0.0";
+$ver="1.0.1";$tagdesc="put package home page"
+git tag v$ver HEAD
+
+# git tag -a v$ver -m "version $ver"
+
+# push one tag to remote ghg
+git push ghg v$ver
+
+# push all tag to remote ghg
+# git push ghg --tags
+
+# git push ghg main
+
+# del tag
+git tag -d v$ver
+# del remote tag
+git push ghg :refs/tags/v$ver
+
+
+# git HEAD / HEAD^ / HEAD~
+# HEAD = HEAD~0 = HEAD^0
+
+# git tag v$ver HEAD
+git tag v$ver HEAD^1
+
+git tag -a v$ver -m "version $ver, tag info"
+
+
+# del
+git tag -d v$ver;git push ghg :refs/tags/v$ver
+
+# del release
+gh release delete v$ver --repo $repo --yes
+
+# add
+git tag v$ver HEAD -m "version $ver";
+
+git tag v$ver HEAD -m "version $ver - $tagdesc";
+
+# push to github
+git push ghg main ; git push ghg v$ver
+
+# git push ghg --tags
+
+# list workflow
+gh workflow list --repo $repo
+# info workflow status
+gh workflow view release  --repo $repo
+# gh run list --workflow deploy.yml  --repo $repo
+
+# gh workflow view ci  --repo $repo
+# gh workflow view lint  --repo $repo
+
+# list
+gh release list --repo $repo
+# https://cli.github.com/manual/gh_release_list
+
+# del
+gh release delete v$ver --repo $repo --yes;
 ```
 
 ## Ability
