@@ -293,4 +293,6 @@ GitHub actions will do the rest job for you.
 
 ## find related project
 
+- [find @yors/xx in npmjs.com](https://www.npmjs.com/search?q=%40yors)
+
 - [find @yors/xx in yarnpkg.com/search](https://yarnpkg.com/search?q=%40yors)
