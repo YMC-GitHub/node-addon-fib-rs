@@ -28,5 +28,5 @@
     "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
-  "repository": "git@github.com:ymc-github/node-addon-fib-rs.git"
+  "repository": "https://github.com/YMC-GitHub/node-addon-fib-rs.git"
 }
