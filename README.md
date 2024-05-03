@@ -198,6 +198,8 @@ gh release delete v$ver --repo $repo --yes
 git add . ;  git commit -m "$ver";git tag v$ver HEAD -m "$ver";
 
 # $shcode='git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$"';sh -c "$shcode";
+# check if version in cmtlog
+$shcode="git log -1 --pretty=%B | grep '^[0-9]\+\.[0-9]\+\.[0-9]\+$'";sh -c "$shcode";
 
 
 # push to github
