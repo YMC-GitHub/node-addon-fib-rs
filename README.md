@@ -191,10 +191,12 @@ git tag v$ver HEAD -m "version $ver";
 
 git tag v$ver HEAD -m "version $ver - $tagdesc";
 
+# git add . ;  git commit -m "version $ver";
+
 # push to github
 git push ghg main ; git push ghg v$ver
 
-# git push ghg --tags
+# git push ghg main --tags
 
 # list workflow
 gh workflow list --repo $repo
