@@ -189,13 +189,13 @@ git tag -d v$ver;git push ghg :refs/tags/v$ver
 gh release delete v$ver --repo $repo --yes
 
 # add
-git tag v$ver HEAD -m "version $ver";
+# git tag v$ver HEAD -m "version $ver";
 
-git tag v$ver HEAD -m "version $ver - $tagdesc";
+# git tag v$ver HEAD -m "version $ver - $tagdesc";
 
 # git add . ;  git commit -m "version $ver";git tag v$ver HEAD -m "version $ver";
 
-# git add . ;  git commit -m "$ver";git tag v$ver HEAD -m "$ver";
+git add . ;  git commit -m "$ver";git tag v$ver HEAD -m "$ver";
 
 # $shcode='git log -1 --pretty=%B | grep "^[0-9]\+\.[0-9]\+\.[0-9]\+$"';sh -c "$shcode";
 
