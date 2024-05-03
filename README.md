@@ -2,7 +2,9 @@
 
 a fib function for node in rust with napi-rs/package/template
 
-![https://github.com/ymc-github/node-addon-fib-rs/actions](https://github.com/ymc-github/node-addon-fib-rs/workflows/CI/badge.svg)
+[![CI](https://github.com/YMC-GitHub/node-addon-fib-rs/actions/workflows/CI.yml/badge.svg)](https://github.com/YMC-GitHub/node-addon-fib-rs/actions/workflows/CI.yml)
+
+[![Lint](https://github.com/YMC-GitHub/node-addon-fib-rs/actions/workflows/lint.yml/badge.svg)](https://github.com/YMC-GitHub/node-addon-fib-rs/actions/workflows/lint.yml)
 
 > Template project for writing node packages with napi-rs.
 
